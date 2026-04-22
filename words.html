@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Dutch Vocabulary — Flashcards</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#f5f4f0;--bg3:#eeecea;
+  --text:#1a1a18;--text2:#6b6a65;--text3:#9e9d97;
+  --border:rgba(0,0,0,0.12);--border2:rgba(0,0,0,0.22);
+  --radius-md:8px;--radius-lg:12px;
+  --purple-light:#EEEDFE;--purple-mid:#7F77DD;--purple-dark:#3C3489;--purple-border:#AFA9EC;
+  --teal-light:#E1F5EE;--teal-dark:#085041;--teal-border:#5DCAA5;
+  --red-light:#FCEBEB;--red-dark:#501313;--red-border:#F09595;
+  --amber-light:#FAEEDA;--amber-dark:#633806;--amber-border:#EF9F27;
+  --blue-light:#E6F1FB;--blue-dark:#0C447C;--blue-border:#85B7EB;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#1c1c1a;--bg2:#252523;--bg3:#2e2e2b;
+    --text:#f0ede8;--text2:#a09e97;--text3:#6b6a63;
+    --border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.2);
+    --purple-light:#26215C;--purple-dark:#CECBF6;--purple-border:#534AB7;
+    --teal-light:#04342C;--teal-dark:#9FE1CB;--teal-border:#0F6E56;
+    --red-light:#501313;--red-dark:#F7C1C1;--red-border:#A32D2D;
+    --amber-light:#412402;--amber-dark:#FAC775;--amber-border:#BA7517;
+    --blue-light:#042C53;--blue-dark:#B5D4F4;--blue-border:#378ADD;
+  }
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg3);color:var(--text);min-height:100vh;padding:1.5rem 1rem}
+.app{max-width:680px;margin:0 auto}
+h1{font-size:22px;font-weight:500;margin-bottom:4px}
+.subtitle{font-size:13px;color:var(--text2);margin-bottom:1.5rem}
+.mode-tabs{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
+.mode-tab{flex:1;min-width:140px;padding:9px 12px;border:0.5px solid var(--border2);border-radius:var(--radius-md);background:var(--bg);cursor:pointer;font-size:13px;font-weight:500;color:var(--text2);transition:all .15s;font-family:inherit}
+.mode-tab.active{background:var(--blue-light);color:var(--blue-dark);border-color:transparent}
+.section-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.cat-grid{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.cat-btn{padding:6px 12px;border:0.5px solid var(--border);border-radius:var(--radius-md);background:var(--bg2);cursor:pointer;font-size:12px;color:var(--text2);transition:all .15s;font-family:inherit}
+.cat-btn.active{background:var(--purple-light);color:var(--purple-dark);border-color:var(--purple-border)}
+.cat-btn:hover:not(.active){border-color:var(--border2);color:var(--text)}
+.progress-bar{height:4px;background:var(--bg2);border-radius:2px;margin-bottom:6px;overflow:hidden}
+.progress-fill{height:100%;background:var(--purple-mid);border-radius:2px;transition:width .3s}
+.progress-text{font-size:12px;color:var(--text3);text-align:right;margin-bottom:1.5rem}
+.card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:2rem;margin-bottom:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;cursor:pointer;transition:transform .1s;position:relative}
+.card:hover{transform:scale(1.003)}
+.card.no-hover{cursor:default;transform:none!important;align-items:flex-start}
+.card-hint{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;text-align:center}
+.card-main{font-size:26px;font-weight:500;color:var(--text);text-align:center;margin-bottom:.25rem}
+.card-type{font-size:11px;color:var(--text3);margin-bottom:1rem}
+.card-tap{font-size:12px;color:var(--text3);margin-top:1.5rem}
+.answer-block{display:none;width:100%;margin-top:1rem}
+.answer-block.show{display:block}
+.answer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.answer-cell{background:var(--bg2);border-radius:var(--radius-md);padding:10px 14px}
+.answer-cell.full{grid-column:1/-1}
+.answer-cell .alabel{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.answer-cell .avalue{font-size:15px;font-weight:500;color:var(--text)}
+.fill-form{display:flex;flex-direction:column;gap:10px;width:100%;margin-top:1rem}
+.fill-row{display:flex;flex-direction:column;gap:4px}
+.fill-row label{font-size:12px;color:var(--text2)}
+.fill-input{width:100%;padding:9px 12px;border:0.5px solid var(--border2);border-radius:var(--radius-md);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;outline:none;transition:border-color .15s}
+.fill-input:focus{border-color:var(--purple-mid)}
+.fill-input.correct{border-color:var(--teal-border);background:var(--teal-light);color:var(--teal-dark)}
+.fill-input.wrong{border-color:var(--red-border);background:var(--red-light);color:var(--red-dark)}
+.card-header{margin-bottom:1rem;width:100%}
+.card-word{font-size:22px;font-weight:500;color:var(--text)}
+.card-en{font-size:14px;color:var(--text2);margin-top:2px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem}
+.btn{padding:9px 18px;border:0.5px solid var(--border2);border-radius:var(--radius-md);background:var(--bg);cursor:pointer;font-size:13px;font-weight:500;color:var(--text);transition:all .15s;font-family:inherit}
+.btn:hover{background:var(--bg2)}
+.btn.primary{background:var(--purple-light);color:var(--purple-dark);border-color:var(--purple-border)}
+.btn.primary:hover{background:var(--purple-border)}
+.btn.success{background:var(--teal-light);color:var(--teal-dark);border-color:var(--teal-border)}
+.btn.danger{background:var(--red-light);color:var(--red-dark);border-color:var(--red-border)}
+.stats{display:flex;gap:10px;margin-top:.5rem}
+.stat{flex:1;background:var(--bg2);border-radius:var(--radius-md);padding:10px;text-align:center}
+.stat .n{font-size:20px;font-weight:500}
+.stat .l{font-size:11px;color:var(--text2)}
+.stat.correct .n{color:#1D9E75}
+.stat.wrong .n{color:#E24B4A}
+.empty{text-align:center;padding:3rem;color:var(--text2);font-size:14px}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;margin-left:6px}
+.badge-noun{background:var(--blue-light);color:var(--blue-dark)}
+.badge-adj{background:var(--amber-light);color:var(--amber-dark)}
+.badge-adv{background:var(--teal-light);color:var(--teal-dark)}
+</style>
+</head>
+<body>
+<div class="app">
+<h1>Dutch vocabulary</h1>
+<p class="subtitle">Nouns: guess meaning + de/het + plural &nbsp;·&nbsp; Adjectives & adverbs: guess meaning</p>
+
+<div class="mode-tabs">
+  <button class="mode-tab active" onclick="setMode('meaning')">Mode 1 — meaning</button>
+  <button class="mode-tab" onclick="setMode('full')">Mode 2 — full (article + plural)</button>
+</div>
+
+<div class="section-label">Category</div>
+<div class="cat-grid" id="catGrid"></div>
+
+<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+<div class="progress-text" id="progressText">—</div>
+
+<div id="cardArea"><div class="empty">Select a category above to begin</div></div>
+<div class="actions" id="actions" style="display:none"></div>
+<div class="stats" id="statsArea" style="display:none"></div>
+</div>
+
+<script>
+// word type: 'n'=noun, 'a'=adjective, 'adv'=adverb
+// noun fields: nl, en, art ('de'|'het'), pl (plural)
+// adj/adv fields: nl, en, type
+const WORDS = {
+  "Body & health": [
+    {nl:"lichaam",en:"body",art:"het",pl:"lichamen",t:"n"},
+    {nl:"hoofd",en:"head",art:"het",pl:"hoofden",t:"n"},
+    {nl:"gezicht",en:"face",art:"het",pl:"gezichten",t:"n"},
+    {nl:"oog",en:"eye",art:"het",pl:"ogen",t:"n"},
+    {nl:"oor",en:"ear",art:"het",pl:"oren",t:"n"},
+    {nl:"neus",en:"nose",art:"de",pl:"neuzen",t:"n"},
+    {nl:"mond",en:"mouth",art:"de",pl:"monden",t:"n"},
+    {nl:"tand",en:"tooth",art:"de",pl:"tanden",t:"n"},
+    {nl:"tong",en:"tongue",art:"de",pl:"tongen",t:"n"},
+    {nl:"lip",en:"lip",art:"de",pl:"lippen",t:"n"},
+    {nl:"keel",en:"throat",art:"de",pl:"kelen",t:"n"},
+    {nl:"nek",en:"neck",art:"de",pl:"nekken",t:"n"},
+    {nl:"schouder",en:"shoulder",art:"de",pl:"schouders",t:"n"},
+    {nl:"arm",en:"arm",art:"de",pl:"armen",t:"n"},
+    {nl:"hand",en:"hand",art:"de",pl:"handen",t:"n"},
+    {nl:"vinger",en:"finger",art:"de",pl:"vingers",t:"n"},
+    {nl:"borst",en:"chest / breast",art:"de",pl:"borsten",t:"n"},
+    {nl:"buik",en:"belly / stomach",art:"de",pl:"buiken",t:"n"},
+    {nl:"rug",en:"back",art:"de",pl:"ruggen",t:"n"},
+    {nl:"been",en:"leg / bone",art:"het",pl:"benen",t:"n"},
+    {nl:"knie",en:"knee",art:"de",pl:"knieën",t:"n"},
+    {nl:"voet",en:"foot",art:"de",pl:"voeten",t:"n"},
+    {nl:"teen",en:"toe",art:"de",pl:"tenen",t:"n"},
+    {nl:"huid",en:"skin",art:"de",pl:"huiden",t:"n"},
+    {nl:"haar",en:"hair",art:"het",pl:"haren",t:"n"},
+    {nl:"hart",en:"heart",art:"het",pl:"harten",t:"n"},
+    {nl:"bloed",en:"blood",art:"het",pl:"—",t:"n"},
+    {nl:"hersenen",en:"brain",art:"de",pl:"hersenen",t:"n"},
+    {nl:"long",en:"lung",art:"de",pl:"longen",t:"n"},
+    {nl:"maag",en:"stomach",art:"de",pl:"magen",t:"n"},
+    {nl:"nier",en:"kidney",art:"de",pl:"nieren",t:"n"},
+    {nl:"lever",en:"liver",art:"de",pl:"levers",t:"n"},
+    {nl:"bot",en:"bone",art:"het",pl:"botten",t:"n"},
+    {nl:"spier",en:"muscle",art:"de",pl:"spieren",t:"n"},
+    {nl:"zenuw",en:"nerve",art:"de",pl:"zenuwen",t:"n"},
+    {nl:"wond",en:"wound",art:"de",pl:"wonden",t:"n"},
+    {nl:"pijn",en:"pain",art:"de",pl:"pijnen",t:"n"},
+    {nl:"koorts",en:"fever",art:"de",pl:"koortsen",t:"n"},
+    {nl:"ziekte",en:"illness / disease",art:"de",pl:"ziekten",t:"n"},
+    {nl:"medicijn",en:"medicine",art:"het",pl:"medicijnen",t:"n"},
+    {nl:"arts",en:"doctor",art:"de",pl:"artsen",t:"n"},
+    {nl:"ziekenhuis",en:"hospital",art:"het",pl:"ziekenhuizen",t:"n"},
+    {nl:"operatie",en:"operation / surgery",art:"de",pl:"operaties",t:"n"},
+    {nl:"therapie",en:"therapy",art:"de",pl:"therapieën",t:"n"},
+    {nl:"apotheek",en:"pharmacy",art:"de",pl:"apotheken",t:"n"},
+    {nl:"recept",en:"prescription / recipe",art:"het",pl:"recepten",t:"n"},
+    {nl:"zwangerschap",en:"pregnancy",art:"de",pl:"zwangerschappen",t:"n"},
+    {nl:"gezondheid",en:"health",art:"de",pl:"—",t:"n"},
+    {nl:"dieet",en:"diet",art:"het",pl:"diëten",t:"n"},
+    {nl:"gewicht",en:"weight",art:"het",pl:"gewichten",t:"n"},
+    {nl:"wang",en:"cheek",art:"de",pl:"wangen",t:"n"},
+    {nl:"elleboog",en:"elbow",art:"de",pl:"ellebogen",t:"n"},
+    {nl:"pols",en:"wrist / pulse",art:"de",pl:"polsen",t:"n"},
+    {nl:"enkel",en:"ankle",art:"de",pl:"enkels",t:"n"},
+  ],
+  "Food & drink": [
+    {nl:"brood",en:"bread",art:"het",pl:"broden",t:"n"},
+    {nl:"boter",en:"butter",art:"de",pl:"—",t:"n"},
+    {nl:"kaas",en:"cheese",art:"de",pl:"kazen",t:"n"},
+    {nl:"melk",en:"milk",art:"de",pl:"—",t:"n"},
+    {nl:"ei",en:"egg",art:"het",pl:"eieren",t:"n"},
+    {nl:"vlees",en:"meat",art:"het",pl:"—",t:"n"},
+    {nl:"vis",en:"fish",art:"de",pl:"vissen",t:"n"},
+    {nl:"kip",en:"chicken",art:"de",pl:"kippen",t:"n"},
+    {nl:"groente",en:"vegetable",art:"de",pl:"groenten",t:"n"},
+    {nl:"fruit",en:"fruit",art:"het",pl:"—",t:"n"},
+    {nl:"appel",en:"apple",art:"de",pl:"appels",t:"n"},
+    {nl:"peer",en:"pear",art:"de",pl:"peren",t:"n"},
+    {nl:"banaan",en:"banana",art:"de",pl:"bananen",t:"n"},
+    {nl:"aardbei",en:"strawberry",art:"de",pl:"aardbeien",t:"n"},
+    {nl:"druif",en:"grape",art:"de",pl:"druiven",t:"n"},
+    {nl:"sinaasappel",en:"orange",art:"de",pl:"sinaasappels",t:"n"},
+    {nl:"citroen",en:"lemon",art:"de",pl:"citroenen",t:"n"},
+    {nl:"tomaat",en:"tomato",art:"de",pl:"tomaten",t:"n"},
+    {nl:"aardappel",en:"potato",art:"de",pl:"aardappels",t:"n"},
+    {nl:"ui",en:"onion",art:"de",pl:"uien",t:"n"},
+    {nl:"knoflook",en:"garlic",art:"het",pl:"—",t:"n"},
+    {nl:"wortel",en:"carrot",art:"de",pl:"wortels",t:"n"},
+    {nl:"sla",en:"lettuce / salad",art:"de",pl:"—",t:"n"},
+    {nl:"rijst",en:"rice",art:"de",pl:"—",t:"n"},
+    {nl:"pasta",en:"pasta",art:"de",pl:"pasta's",t:"n"},
+    {nl:"soep",en:"soup",art:"de",pl:"soepen",t:"n"},
+    {nl:"saus",en:"sauce",art:"de",pl:"sauzen",t:"n"},
+    {nl:"suiker",en:"sugar",art:"de",pl:"—",t:"n"},
+    {nl:"zout",en:"salt",art:"het",pl:"—",t:"n"},
+    {nl:"peper",en:"pepper",art:"de",pl:"—",t:"n"},
+    {nl:"olie",en:"oil",art:"de",pl:"oliën",t:"n"},
+    {nl:"azijn",en:"vinegar",art:"de",pl:"—",t:"n"},
+    {nl:"water",en:"water",art:"het",pl:"—",t:"n"},
+    {nl:"koffie",en:"coffee",art:"de",pl:"—",t:"n"},
+    {nl:"thee",en:"tea",art:"de",pl:"—",t:"n"},
+    {nl:"bier",en:"beer",art:"het",pl:"bieren",t:"n"},
+    {nl:"wijn",en:"wine",art:"de",pl:"wijnen",t:"n"},
+    {nl:"sap",en:"juice",art:"het",pl:"sappen",t:"n"},
+    {nl:"maaltijd",en:"meal",art:"de",pl:"maaltijden",t:"n"},
+    {nl:"ontbijt",en:"breakfast",art:"het",pl:"ontbijten",t:"n"},
+    {nl:"lunch",en:"lunch",art:"de",pl:"lunches",t:"n"},
+    {nl:"avondeten",en:"dinner",art:"het",pl:"avondeten",t:"n"},
+    {nl:"snack",en:"snack",art:"de",pl:"snacks",t:"n"},
+    {nl:"taart",en:"cake / tart",art:"de",pl:"taarten",t:"n"},
+    {nl:"koek",en:"cookie / cake",art:"de",pl:"koeken",t:"n"},
+    {nl:"chocolade",en:"chocolate",art:"de",pl:"—",t:"n"},
+    {nl:"ijs",en:"ice cream / ice",art:"het",pl:"—",t:"n"},
+    {nl:"ham",en:"ham",art:"de",pl:"hammen",t:"n"},
+    {nl:"worst",en:"sausage",art:"de",pl:"worsten",t:"n"},
+    {nl:"boon",en:"bean",art:"de",pl:"bonen",t:"n"},
+    {nl:"erwt",en:"pea",art:"de",pl:"erwten",t:"n"},
+    {nl:"champignon",en:"mushroom",art:"de",pl:"champignons",t:"n"},
+    {nl:"spinazie",en:"spinach",art:"de",pl:"—",t:"n"},
+    {nl:"komkommer",en:"cucumber",art:"de",pl:"komkommers",t:"n"},
+  ],
+  "Animals": [
+    {nl:"hond",en:"dog",art:"de",pl:"honden",t:"n"},
+    {nl:"kat",en:"cat",art:"de",pl:"katten",t:"n"},
+    {nl:"paard",en:"horse",art:"het",pl:"paarden",t:"n"},
+    {nl:"koe",en:"cow",art:"de",pl:"koeien",t:"n"},
+    {nl:"varken",en:"pig",art:"het",pl:"varkens",t:"n"},
+    {nl:"schaap",en:"sheep",art:"het",pl:"schapen",t:"n"},
+    {nl:"geit",en:"goat",art:"de",pl:"geiten",t:"n"},
+    {nl:"kip",en:"hen / chicken",art:"de",pl:"kippen",t:"n"},
+    {nl:"haan",en:"rooster",art:"de",pl:"hanen",t:"n"},
+    {nl:"eend",en:"duck",art:"de",pl:"eenden",t:"n"},
+    {nl:"vogel",en:"bird",art:"de",pl:"vogels",t:"n"},
+    {nl:"vis",en:"fish",art:"de",pl:"vissen",t:"n"},
+    {nl:"muis",en:"mouse",art:"de",pl:"muizen",t:"n"},
+    {nl:"rat",en:"rat",art:"de",pl:"ratten",t:"n"},
+    {nl:"konijn",en:"rabbit",art:"het",pl:"konijnen",t:"n"},
+    {nl:"beer",en:"bear",art:"de",pl:"beren",t:"n"},
+    {nl:"wolf",en:"wolf",art:"de",pl:"wolven",t:"n"},
+    {nl:"vos",en:"fox",art:"de",pl:"vossen",t:"n"},
+    {nl:"leeuw",en:"lion",art:"de",pl:"leeuwen",t:"n"},
+    {nl:"tijger",en:"tiger",art:"de",pl:"tijgers",t:"n"},
+    {nl:"olifant",en:"elephant",art:"de",pl:"olifanten",t:"n"},
+    {nl:"aap",en:"monkey / ape",art:"de",pl:"apen",t:"n"},
+    {nl:"slang",en:"snake",art:"de",pl:"slangen",t:"n"},
+    {nl:"spin",en:"spider",art:"de",pl:"spinnen",t:"n"},
+    {nl:"bij",en:"bee",art:"de",pl:"bijen",t:"n"},
+    {nl:"vlieg",en:"fly",art:"de",pl:"vliegen",t:"n"},
+    {nl:"mug",en:"mosquito",art:"de",pl:"muggen",t:"n"},
+    {nl:"vlinder",en:"butterfly",art:"de",pl:"vlinders",t:"n"},
+    {nl:"kikker",en:"frog",art:"de",pl:"kikkers",t:"n"},
+    {nl:"schildpad",en:"turtle / tortoise",art:"de",pl:"schildpadden",t:"n"},
+    {nl:"hert",en:"deer",art:"het",pl:"herten",t:"n"},
+    {nl:"eekhoorn",en:"squirrel",art:"de",pl:"eekhoorns",t:"n"},
+    {nl:"dolfijn",en:"dolphin",art:"de",pl:"dolfijnen",t:"n"},
+    {nl:"walvis",en:"whale",art:"de",pl:"walvissen",t:"n"},
+    {nl:"haai",en:"shark",art:"de",pl:"haaien",t:"n"},
+    {nl:"adelaar",en:"eagle",art:"de",pl:"adelaars",t:"n"},
+    {nl:"uil",en:"owl",art:"de",pl:"uilen",t:"n"},
+    {nl:"papegaai",en:"parrot",art:"de",pl:"papegaaien",t:"n"},
+    {nl:"krokodil",en:"crocodile",art:"de",pl:"krokodillen",t:"n"},
+    {nl:"giraffe",en:"giraffe",art:"de",pl:"giraffen",t:"n"},
+    {nl:"zebra",en:"zebra",art:"de",pl:"zebra's",t:"n"},
+    {nl:"lam",en:"lamb",art:"het",pl:"lammeren",t:"n"},
+    {nl:"biggetje",en:"piglet",art:"het",pl:"biggetjes",t:"n"},
+    {nl:"ezel",en:"donkey",art:"de",pl:"ezels",t:"n"},
+  ],
+  "Nature & weather": [
+    {nl:"zon",en:"sun",art:"de",pl:"—",t:"n"},
+    {nl:"maan",en:"moon",art:"de",pl:"manen",t:"n"},
+    {nl:"ster",en:"star",art:"de",pl:"sterren",t:"n"},
+    {nl:"hemel",en:"sky / heaven",art:"de",pl:"hemels",t:"n"},
+    {nl:"wolk",en:"cloud",art:"de",pl:"wolken",t:"n"},
+    {nl:"regen",en:"rain",art:"de",pl:"—",t:"n"},
+    {nl:"sneeuw",en:"snow",art:"de",pl:"—",t:"n"},
+    {nl:"wind",en:"wind",art:"de",pl:"winden",t:"n"},
+    {nl:"storm",en:"storm",art:"de",pl:"stormen",t:"n"},
+    {nl:"bliksem",en:"lightning",art:"de",pl:"—",t:"n"},
+    {nl:"donder",en:"thunder",art:"de",pl:"—",t:"n"},
+    {nl:"mist",en:"fog / mist",art:"de",pl:"—",t:"n"},
+    {nl:"ijs",en:"ice",art:"het",pl:"—",t:"n"},
+    {nl:"zee",en:"sea",art:"de",pl:"zeeën",t:"n"},
+    {nl:"oceaan",en:"ocean",art:"de",pl:"oceanen",t:"n"},
+    {nl:"rivier",en:"river",art:"de",pl:"rivieren",t:"n"},
+    {nl:"meer",en:"lake",art:"het",pl:"meren",t:"n"},
+    {nl:"vijver",en:"pond",art:"de",pl:"vijvers",t:"n"},
+    {nl:"berg",en:"mountain",art:"de",pl:"bergen",t:"n"},
+    {nl:"heuvel",en:"hill",art:"de",pl:"heuvels",t:"n"},
+    {nl:"dal",en:"valley",art:"het",pl:"dalen",t:"n"},
+    {nl:"bos",en:"forest / wood",art:"het",pl:"bossen",t:"n"},
+    {nl:"boom",en:"tree",art:"de",pl:"bomen",t:"n"},
+    {nl:"bloem",en:"flower",art:"de",pl:"bloemen",t:"n"},
+    {nl:"gras",en:"grass",art:"het",pl:"grassen",t:"n"},
+    {nl:"blad",en:"leaf",art:"het",pl:"bladeren",t:"n"},
+    {nl:"wortel",en:"root",art:"de",pl:"wortels",t:"n"},
+    {nl:"grond",en:"ground / soil",art:"de",pl:"gronden",t:"n"},
+    {nl:"steen",en:"stone / rock",art:"de",pl:"stenen",t:"n"},
+    {nl:"zand",en:"sand",art:"het",pl:"—",t:"n"},
+    {nl:"strand",en:"beach",art:"het",pl:"stranden",t:"n"},
+    {nl:"kust",en:"coast",art:"de",pl:"kusten",t:"n"},
+    {nl:"eiland",en:"island",art:"het",pl:"eilanden",t:"n"},
+    {nl:"vulkaan",en:"volcano",art:"de",pl:"vulkanen",t:"n"},
+    {nl:"woestijn",en:"desert",art:"de",pl:"woestijnen",t:"n"},
+    {nl:"veld",en:"field",art:"het",pl:"velden",t:"n"},
+    {nl:"wei",en:"meadow",art:"de",pl:"weiden",t:"n"},
+    {nl:"lucht",en:"air / sky",art:"de",pl:"—",t:"n"},
+    {nl:"klimaat",en:"climate",art:"het",pl:"klimaten",t:"n"},
+    {nl:"temperatuur",en:"temperature",art:"de",pl:"temperaturen",t:"n"},
+    {nl:"seizoen",en:"season",art:"het",pl:"seizoenen",t:"n"},
+    {nl:"lente",en:"spring",art:"de",pl:"lenten",t:"n"},
+    {nl:"zomer",en:"summer",art:"de",pl:"zomers",t:"n"},
+    {nl:"herfst",en:"autumn / fall",art:"de",pl:"herfsten",t:"n"},
+    {nl:"winter",en:"winter",art:"de",pl:"winters",t:"n"},
+    {nl:"planeet",en:"planet",art:"de",pl:"planeten",t:"n"},
+    {nl:"natuur",en:"nature",art:"de",pl:"—",t:"n"},
+    {nl:"milieu",en:"environment",art:"het",pl:"—",t:"n"},
+  ],
+  "Home & furniture": [
+    {nl:"huis",en:"house",art:"het",pl:"huizen",t:"n"},
+    {nl:"woning",en:"dwelling / home",art:"de",pl:"woningen",t:"n"},
+    {nl:"appartement",en:"apartment",art:"het",pl:"appartementen",t:"n"},
+    {nl:"kamer",en:"room",art:"de",pl:"kamers",t:"n"},
+    {nl:"woonkamer",en:"living room",art:"de",pl:"woonkamers",t:"n"},
+    {nl:"slaapkamer",en:"bedroom",art:"de",pl:"slaapkamers",t:"n"},
+    {nl:"keuken",en:"kitchen",art:"de",pl:"keukens",t:"n"},
+    {nl:"badkamer",en:"bathroom",art:"de",pl:"badkamers",t:"n"},
+    {nl:"toilet",en:"toilet",art:"het",pl:"toiletten",t:"n"},
+    {nl:"gang",en:"hallway",art:"de",pl:"gangen",t:"n"},
+    {nl:"tuin",en:"garden",art:"de",pl:"tuinen",t:"n"},
+    {nl:"balkon",en:"balcony",art:"het",pl:"balkons",t:"n"},
+    {nl:"kelder",en:"basement / cellar",art:"de",pl:"kelders",t:"n"},
+    {nl:"zolder",en:"attic",art:"de",pl:"zolders",t:"n"},
+    {nl:"dak",en:"roof",art:"het",pl:"daken",t:"n"},
+    {nl:"muur",en:"wall",art:"de",pl:"muren",t:"n"},
+    {nl:"vloer",en:"floor",art:"de",pl:"vloeren",t:"n"},
+    {nl:"plafond",en:"ceiling",art:"het",pl:"plafonds",t:"n"},
+    {nl:"deur",en:"door",art:"de",pl:"deuren",t:"n"},
+    {nl:"raam",en:"window",art:"het",pl:"ramen",t:"n"},
+    {nl:"trap",en:"stairs",art:"de",pl:"trappen",t:"n"},
+    {nl:"tafel",en:"table",art:"de",pl:"tafels",t:"n"},
+    {nl:"stoel",en:"chair",art:"de",pl:"stoelen",t:"n"},
+    {nl:"bank",en:"sofa / couch",art:"de",pl:"banken",t:"n"},
+    {nl:"bed",en:"bed",art:"het",pl:"bedden",t:"n"},
+    {nl:"kast",en:"cupboard / wardrobe",art:"de",pl:"kasten",t:"n"},
+    {nl:"bureau",en:"desk",art:"het",pl:"bureau's",t:"n"},
+    {nl:"lamp",en:"lamp",art:"de",pl:"lampen",t:"n"},
+    {nl:"spiegel",en:"mirror",art:"de",pl:"spiegels",t:"n"},
+    {nl:"tapijt",en:"carpet / rug",art:"het",pl:"tapijten",t:"n"},
+    {nl:"gordijn",en:"curtain",art:"het",pl:"gordijnen",t:"n"},
+    {nl:"koelkast",en:"refrigerator",art:"de",pl:"koelkasten",t:"n"},
+    {nl:"wasmachine",en:"washing machine",art:"de",pl:"wasmachines",t:"n"},
+    {nl:"oven",en:"oven",art:"de",pl:"ovens",t:"n"},
+    {nl:"magnetron",en:"microwave",art:"de",pl:"magnetrons",t:"n"},
+    {nl:"afwasmachine",en:"dishwasher",art:"de",pl:"afwasmachines",t:"n"},
+    {nl:"pan",en:"pan / pot",art:"de",pl:"pannen",t:"n"},
+    {nl:"bord",en:"plate",art:"het",pl:"borden",t:"n"},
+    {nl:"glas",en:"glass",art:"het",pl:"glazen",t:"n"},
+    {nl:"kopje",en:"cup",art:"het",pl:"kopjes",t:"n"},
+    {nl:"lepel",en:"spoon",art:"de",pl:"lepels",t:"n"},
+    {nl:"vork",en:"fork",art:"de",pl:"vorken",t:"n"},
+    {nl:"mes",en:"knife",art:"het",pl:"messen",t:"n"},
+    {nl:"sleutel",en:"key",art:"de",pl:"sleutels",t:"n"},
+    {nl:"slot",en:"lock",art:"het",pl:"sloten",t:"n"},
+    {nl:"verwarming",en:"heating",art:"de",pl:"verwarmingen",t:"n"},
+    {nl:"kraan",en:"tap / faucet",art:"de",pl:"kranen",t:"n"},
+  ],
+  "Clothing": [
+    {nl:"kleren",en:"clothes",art:"de",pl:"kleren",t:"n"},
+    {nl:"shirt",en:"shirt / t-shirt",art:"het",pl:"shirts",t:"n"},
+    {nl:"broek",en:"trousers / pants",art:"de",pl:"broeken",t:"n"},
+    {nl:"rok",en:"skirt",art:"de",pl:"rokken",t:"n"},
+    {nl:"jurk",en:"dress",art:"de",pl:"jurken",t:"n"},
+    {nl:"jas",en:"coat / jacket",art:"de",pl:"jassen",t:"n"},
+    {nl:"trui",en:"sweater / jumper",art:"de",pl:"truien",t:"n"},
+    {nl:"vest",en:"cardigan",art:"het",pl:"vesten",t:"n"},
+    {nl:"sok",en:"sock",art:"de",pl:"sokken",t:"n"},
+    {nl:"schoen",en:"shoe",art:"de",pl:"schoenen",t:"n"},
+    {nl:"laars",en:"boot",art:"de",pl:"laarzen",t:"n"},
+    {nl:"sandaal",en:"sandal",art:"de",pl:"sandalen",t:"n"},
+    {nl:"hoed",en:"hat",art:"de",pl:"hoeden",t:"n"},
+    {nl:"muts",en:"beanie / hat",art:"de",pl:"mutsen",t:"n"},
+    {nl:"sjaal",en:"scarf",art:"de",pl:"sjaals",t:"n"},
+    {nl:"handschoen",en:"glove",art:"de",pl:"handschoenen",t:"n"},
+    {nl:"riem",en:"belt",art:"de",pl:"riemen",t:"n"},
+    {nl:"das",en:"tie",art:"de",pl:"dassen",t:"n"},
+    {nl:"ondergoed",en:"underwear",art:"het",pl:"—",t:"n"},
+    {nl:"pyjama",en:"pyjamas",art:"de",pl:"pyjama's",t:"n"},
+    {nl:"badjas",en:"bathrobe",art:"de",pl:"badjassen",t:"n"},
+    {nl:"zwembroek",en:"swimming trunks",art:"de",pl:"zwembroeken",t:"n"},
+    {nl:"bikini",en:"bikini",art:"de",pl:"bikini's",t:"n"},
+    {nl:"mouw",en:"sleeve",art:"de",pl:"mouwen",t:"n"},
+    {nl:"kraag",en:"collar",art:"de",pl:"kragen",t:"n"},
+    {nl:"zak",en:"pocket",art:"de",pl:"zakken",t:"n"},
+    {nl:"knoop",en:"button",art:"de",pl:"knopen",t:"n"},
+    {nl:"rits",en:"zip",art:"de",pl:"ritsen",t:"n"},
+    {nl:"stof",en:"fabric",art:"de",pl:"stoffen",t:"n"},
+    {nl:"maat",en:"size",art:"de",pl:"maten",t:"n"},
+  ],
+  "Family & people": [
+    {nl:"moeder",en:"mother",art:"de",pl:"moeders",t:"n"},
+    {nl:"vader",en:"father",art:"de",pl:"vaders",t:"n"},
+    {nl:"kind",en:"child",art:"het",pl:"kinderen",t:"n"},
+    {nl:"zoon",en:"son",art:"de",pl:"zonen / zoons",t:"n"},
+    {nl:"dochter",en:"daughter",art:"de",pl:"dochters",t:"n"},
+    {nl:"broer",en:"brother",art:"de",pl:"broers",t:"n"},
+    {nl:"zus",en:"sister",art:"de",pl:"zussen",t:"n"},
+    {nl:"opa",en:"grandfather",art:"de",pl:"opa's",t:"n"},
+    {nl:"oma",en:"grandmother",art:"de",pl:"oma's",t:"n"},
+    {nl:"oom",en:"uncle",art:"de",pl:"ooms",t:"n"},
+    {nl:"tante",en:"aunt",art:"de",pl:"tantes",t:"n"},
+    {nl:"neef",en:"nephew / male cousin",art:"de",pl:"neven",t:"n"},
+    {nl:"nicht",en:"niece / female cousin",art:"de",pl:"nichten",t:"n"},
+    {nl:"vriend",en:"friend / boyfriend",art:"de",pl:"vrienden",t:"n"},
+    {nl:"vriendin",en:"friend / girlfriend",art:"de",pl:"vriendinnen",t:"n"},
+    {nl:"buur",en:"neighbour",art:"de",pl:"buren",t:"n"},
+    {nl:"collega",en:"colleague",art:"de",pl:"collega's",t:"n"},
+    {nl:"man",en:"man / husband",art:"de",pl:"mannen",t:"n"},
+    {nl:"vrouw",en:"woman / wife",art:"de",pl:"vrouwen",t:"n"},
+    {nl:"jongen",en:"boy",art:"de",pl:"jongens",t:"n"},
+    {nl:"meisje",en:"girl",art:"het",pl:"meisjes",t:"n"},
+    {nl:"baby",en:"baby",art:"de",pl:"baby's",t:"n"},
+    {nl:"peuter",en:"toddler",art:"de",pl:"peuters",t:"n"},
+    {nl:"tiener",en:"teenager",art:"de",pl:"tieners",t:"n"},
+    {nl:"volwassene",en:"adult",art:"de",pl:"volwassenen",t:"n"},
+    {nl:"bejaarde",en:"elderly person",art:"de",pl:"bejaarden",t:"n"},
+    {nl:"echtgenoot",en:"husband",art:"de",pl:"echtgenoten",t:"n"},
+    {nl:"echtgenote",en:"wife",art:"de",pl:"echtgenotes",t:"n"},
+    {nl:"partner",en:"partner",art:"de",pl:"partners",t:"n"},
+    {nl:"huwelijk",en:"marriage",art:"het",pl:"huwelijken",t:"n"},
+    {nl:"gezin",en:"family (nuclear)",art:"het",pl:"gezinnen",t:"n"},
+    {nl:"familie",en:"family (extended)",art:"de",pl:"families",t:"n"},
+    {nl:"persoon",en:"person",art:"de",pl:"personen",t:"n"},
+    {nl:"mens",en:"human / person",art:"de",pl:"mensen",t:"n"},
+  ],
+  "Work & school": [
+    {nl:"werk",en:"work",art:"het",pl:"werken",t:"n"},
+    {nl:"baan",en:"job",art:"de",pl:"banen",t:"n"},
+    {nl:"bedrijf",en:"company / business",art:"het",pl:"bedrijven",t:"n"},
+    {nl:"kantoor",en:"office",art:"het",pl:"kantoren",t:"n"},
+    {nl:"vergadering",en:"meeting",art:"de",pl:"vergaderingen",t:"n"},
+    {nl:"project",en:"project",art:"het",pl:"projecten",t:"n"},
+    {nl:"deadline",en:"deadline",art:"de",pl:"deadlines",t:"n"},
+    {nl:"salaris",en:"salary",art:"het",pl:"salarissen",t:"n"},
+    {nl:"contract",en:"contract",art:"het",pl:"contracten",t:"n"},
+    {nl:"baas",en:"boss",art:"de",pl:"bazen",t:"n"},
+    {nl:"werknemer",en:"employee",art:"de",pl:"werknemers",t:"n"},
+    {nl:"werkgever",en:"employer",art:"de",pl:"werkgevers",t:"n"},
+    {nl:"school",en:"school",art:"de",pl:"scholen",t:"n"},
+    {nl:"universiteit",en:"university",art:"de",pl:"universiteiten",t:"n"},
+    {nl:"les",en:"lesson / class",art:"de",pl:"lessen",t:"n"},
+    {nl:"huiswerk",en:"homework",art:"het",pl:"—",t:"n"},
+    {nl:"toets",en:"test / quiz",art:"de",pl:"toetsen",t:"n"},
+    {nl:"examen",en:"exam",art:"het",pl:"examens",t:"n"},
+    {nl:"cijfer",en:"grade / number",art:"het",pl:"cijfers",t:"n"},
+    {nl:"boek",en:"book",art:"het",pl:"boeken",t:"n"},
+    {nl:"schrift",en:"notebook",art:"het",pl:"schriften",t:"n"},
+    {nl:"pen",en:"pen",art:"de",pl:"pennen",t:"n"},
+    {nl:"potlood",en:"pencil",art:"het",pl:"potloden",t:"n"},
+    {nl:"computer",en:"computer",art:"de",pl:"computers",t:"n"},
+    {nl:"laptop",en:"laptop",art:"de",pl:"laptops",t:"n"},
+    {nl:"leraar",en:"teacher (m)",art:"de",pl:"leraren",t:"n"},
+    {nl:"lerares",en:"teacher (f)",art:"de",pl:"leraressen",t:"n"},
+    {nl:"leerling",en:"pupil / student",art:"de",pl:"leerlingen",t:"n"},
+    {nl:"student",en:"university student",art:"de",pl:"studenten",t:"n"},
+    {nl:"opleiding",en:"education / training",art:"de",pl:"opleidingen",t:"n"},
+    {nl:"stage",en:"internship",art:"de",pl:"stages",t:"n"},
+    {nl:"vergunnning",en:"permit / licence",art:"de",pl:"vergunningen",t:"n"},
+    {nl:"cursus",en:"course",art:"de",pl:"cursussen",t:"n"},
+    {nl:"vak",en:"subject / trade",art:"het",pl:"vakken",t:"n"},
+    {nl:"klas",en:"class / classroom",art:"de",pl:"klassen",t:"n"},
+  ],
+  "City & transport": [
+    {nl:"stad",en:"city / town",art:"de",pl:"steden",t:"n"},
+    {nl:"dorp",en:"village",art:"het",pl:"dorpen",t:"n"},
+    {nl:"straat",en:"street",art:"de",pl:"straten",t:"n"},
+    {nl:"weg",en:"road / way",art:"de",pl:"wegen",t:"n"},
+    {nl:"brug",en:"bridge",art:"de",pl:"bruggen",t:"n"},
+    {nl:"plein",en:"square",art:"het",pl:"pleinen",t:"n"},
+    {nl:"park",en:"park",art:"het",pl:"parken",t:"n"},
+    {nl:"winkel",en:"shop / store",art:"de",pl:"winkels",t:"n"},
+    {nl:"supermarkt",en:"supermarket",art:"de",pl:"supermarkten",t:"n"},
+    {nl:"restaurant",en:"restaurant",art:"het",pl:"restaurants",t:"n"},
+    {nl:"café",en:"café / bar",art:"het",pl:"cafés",t:"n"},
+    {nl:"bibliotheek",en:"library",art:"de",pl:"bibliotheken",t:"n"},
+    {nl:"museum",en:"museum",art:"het",pl:"musea",t:"n"},
+    {nl:"ziekenhuis",en:"hospital",art:"het",pl:"ziekenhuizen",t:"n"},
+    {nl:"politiebureau",en:"police station",art:"het",pl:"politiebureaus",t:"n"},
+    {nl:"gemeentehuis",en:"town hall",art:"het",pl:"gemeentehuizen",t:"n"},
+    {nl:"station",en:"station",art:"het",pl:"stations",t:"n"},
+    {nl:"vliegveld",en:"airport",art:"het",pl:"vliegvelden",t:"n"},
+    {nl:"haven",en:"harbour / port",art:"de",pl:"havens",t:"n"},
+    {nl:"auto",en:"car",art:"de",pl:"auto's",t:"n"},
+    {nl:"fiets",en:"bicycle",art:"de",pl:"fietsen",t:"n"},
+    {nl:"trein",en:"train",art:"de",pl:"treinen",t:"n"},
+    {nl:"bus",en:"bus",art:"de",pl:"bussen",t:"n"},
+    {nl:"tram",en:"tram",art:"de",pl:"trams",t:"n"},
+    {nl:"metro",en:"metro / subway",art:"de",pl:"metro's",t:"n"},
+    {nl:"taxi",en:"taxi",art:"de",pl:"taxi's",t:"n"},
+    {nl:"vliegtuig",en:"airplane",art:"het",pl:"vliegtuigen",t:"n"},
+    {nl:"boot",en:"boat",art:"de",pl:"boten",t:"n"},
+    {nl:"fietspad",en:"cycle path",art:"het",pl:"fietspaden",t:"n"},
+    {nl:"stoplicht",en:"traffic light",art:"het",pl:"stoplichten",t:"n"},
+    {nl:"benzinestation",en:"petrol station",art:"het",pl:"benzinestations",t:"n"},
+    {nl:"parkeerplaats",en:"parking space",art:"de",pl:"parkeerplaatsen",t:"n"},
+    {nl:"kaart",en:"map / card",art:"de",pl:"kaarten",t:"n"},
+    {nl:"adres",en:"address",art:"het",pl:"adressen",t:"n"},
+    {nl:"buurt",en:"neighbourhood",art:"de",pl:"buurten",t:"n"},
+    {nl:"wijk",en:"district",art:"de",pl:"wijken",t:"n"},
+    {nl:"centrum",en:"city centre",art:"het",pl:"centra",t:"n"},
+  ],
+  "Time & numbers": [
+    {nl:"tijd",en:"time",art:"de",pl:"tijden",t:"n"},
+    {nl:"seconde",en:"second",art:"de",pl:"seconden",t:"n"},
+    {nl:"minuut",en:"minute",art:"de",pl:"minuten",t:"n"},
+    {nl:"uur",en:"hour",art:"het",pl:"uren",t:"n"},
+    {nl:"dag",en:"day",art:"de",pl:"dagen",t:"n"},
+    {nl:"week",en:"week",art:"de",pl:"weken",t:"n"},
+    {nl:"maand",en:"month",art:"de",pl:"maanden",t:"n"},
+    {nl:"jaar",en:"year",art:"het",pl:"jaren",t:"n"},
+    {nl:"ochtend",en:"morning",art:"de",pl:"ochtenden",t:"n"},
+    {nl:"middag",en:"afternoon / noon",art:"de",pl:"middagen",t:"n"},
+    {nl:"avond",en:"evening",art:"de",pl:"avonden",t:"n"},
+    {nl:"nacht",en:"night",art:"de",pl:"nachten",t:"n"},
+    {nl:"datum",en:"date",art:"de",pl:"data",t:"n"},
+    {nl:"kalender",en:"calendar",art:"de",pl:"kalenders",t:"n"},
+    {nl:"klok",en:"clock",art:"de",pl:"klokken",t:"n"},
+    {nl:"horloge",en:"watch",art:"het",pl:"horloges",t:"n"},
+    {nl:"verleden",en:"past",art:"het",pl:"—",t:"n"},
+    {nl:"heden",en:"present",art:"het",pl:"—",t:"n"},
+    {nl:"toekomst",en:"future",art:"de",pl:"—",t:"n"},
+    {nl:"gisteren",en:"yesterday",art:"—",pl:"—",t:"adv"},
+    {nl:"vandaag",en:"today",art:"—",pl:"—",t:"adv"},
+    {nl:"morgen",en:"tomorrow / morning",art:"—",pl:"—",t:"adv"},
+    {nl:"weekend",en:"weekend",art:"het",pl:"weekenden",t:"n"},
+    {nl:"vakantie",en:"holiday / vacation",art:"de",pl:"vakanties",t:"n"},
+    {nl:"feestdag",en:"public holiday",art:"de",pl:"feestdagen",t:"n"},
+    {nl:"verjaardag",en:"birthday",art:"de",pl:"verjaardagen",t:"n"},
+    {nl:"eeuw",en:"century",art:"de",pl:"eeuwen",t:"n"},
+    {nl:"decennium",en:"decade",art:"het",pl:"decennia",t:"n"},
+  ],
+  "Emotions & personality": [
+    {nl:"gevoel",en:"feeling / emotion",art:"het",pl:"gevoelens",t:"n"},
+    {nl:"liefde",en:"love",art:"de",pl:"—",t:"n"},
+    {nl:"haat",en:"hate",art:"de",pl:"—",t:"n"},
+    {nl:"angst",en:"fear / anxiety",art:"de",pl:"angsten",t:"n"},
+    {nl:"blijdschap",en:"joy / happiness",art:"de",pl:"—",t:"n"},
+    {nl:"verdriet",en:"sadness / grief",art:"het",pl:"—",t:"n"},
+    {nl:"woede",en:"anger / rage",art:"de",pl:"—",t:"n"},
+    {nl:"jaloezie",en:"jealousy",art:"de",pl:"—",t:"n"},
+    {nl:"schaamte",en:"shame",art:"de",pl:"—",t:"n"},
+    {nl:"trots",en:"pride",art:"de",pl:"—",t:"n"},
+    {nl:"hoop",en:"hope",art:"de",pl:"hopen",t:"n"},
+    {nl:"wanhoop",en:"despair",art:"de",pl:"—",t:"n"},
+    {nl:"vertrouwen",en:"trust / confidence",art:"het",pl:"—",t:"n"},
+    {nl:"twijfel",en:"doubt",art:"de",pl:"twijfels",t:"n"},
+    {nl:"stress",en:"stress",art:"de",pl:"—",t:"n"},
+    {nl:"rust",en:"rest / calm",art:"de",pl:"—",t:"n"},
+    {nl:"geluk",en:"happiness / luck",art:"het",pl:"—",t:"n"},
+    {nl:"pech",en:"bad luck",art:"de",pl:"—",t:"n"},
+    {nl:"karakter",en:"character",art:"het",pl:"karakters",t:"n"},
+    {nl:"persoonlijkheid",en:"personality",art:"de",pl:"persoonlijkheden",t:"n"},
+    {nl:"gewoonte",en:"habit",art:"de",pl:"gewoonten",t:"n"},
+    {nl:"mening",en:"opinion",art:"de",pl:"meningen",t:"n"},
+    {nl:"idee",en:"idea",art:"het",pl:"ideeën",t:"n"},
+    {nl:"gedachte",en:"thought",art:"de",pl:"gedachten",t:"n"},
+    {nl:"herinnering",en:"memory",art:"de",pl:"herinneringen",t:"n"},
+    {nl:"droom",en:"dream",art:"de",pl:"dromen",t:"n"},
+    {nl:"verwachting",en:"expectation",art:"de",pl:"verwachtingen",t:"n"},
+    {nl:"teleurstelling",en:"disappointment",art:"de",pl:"teleurstellingen",t:"n"},
+    {nl:"verrassing",en:"surprise",art:"de",pl:"verrassingen",t:"n"},
+    {nl:"enthousiasme",en:"enthusiasm",art:"het",pl:"—",t:"n"},
+    {nl:"motivatie",en:"motivation",art:"de",pl:"motivaties",t:"n"},
+    {nl:"zelfvertrouwen",en:"self-confidence",art:"het",pl:"—",t:"n"},
+  ],
+  "Money & economy": [
+    {nl:"geld",en:"money",art:"het",pl:"—",t:"n"},
+    {nl:"euro",en:"euro",art:"de",pl:"euro's",t:"n"},
+    {nl:"prijs",en:"price",art:"de",pl:"prijzen",t:"n"},
+    {nl:"kosten",en:"costs / expenses",art:"de",pl:"kosten",t:"n"},
+    {nl:"rekening",en:"bill / account",art:"de",pl:"rekeningen",t:"n"},
+    {nl:"factuur",en:"invoice",art:"de",pl:"facturen",t:"n"},
+    {nl:"betaling",en:"payment",art:"de",pl:"betalingen",t:"n"},
+    {nl:"bank",en:"bank",art:"de",pl:"banken",t:"n"},
+    {nl:"bankrekening",en:"bank account",art:"de",pl:"bankrekeningen",t:"n"},
+    {nl:"creditcard",en:"credit card",art:"de",pl:"creditcards",t:"n"},
+    {nl:"belasting",en:"tax",art:"de",pl:"belastingen",t:"n"},
+    {nl:"inkomen",en:"income",art:"het",pl:"inkomens",t:"n"},
+    {nl:"loon",en:"wage / pay",art:"het",pl:"lonen",t:"n"},
+    {nl:"winst",en:"profit",art:"de",pl:"winsten",t:"n"},
+    {nl:"verlies",en:"loss",art:"het",pl:"verliezen",t:"n"},
+    {nl:"investering",en:"investment",art:"de",pl:"investeringen",t:"n"},
+    {nl:"budget",en:"budget",art:"het",pl:"budgetten",t:"n"},
+    {nl:"schuld",en:"debt / guilt",art:"de",pl:"schulden",t:"n"},
+    {nl:"markt",en:"market",art:"de",pl:"markten",t:"n"},
+    {nl:"economie",en:"economy",art:"de",pl:"economieën",t:"n"},
+    {nl:"bedrijf",en:"company",art:"het",pl:"bedrijven",t:"n"},
+    {nl:"begroting",en:"budget / estimate",art:"de",pl:"begrotingen",t:"n"},
+    {nl:"rente",en:"interest rate",art:"de",pl:"rentes",t:"n"},
+    {nl:"hypotheek",en:"mortgage",art:"de",pl:"hypotheken",t:"n"},
+    {nl:"verzekering",en:"insurance",art:"de",pl:"verzekeringen",t:"n"},
+    {nl:"pensioen",en:"pension",art:"het",pl:"pensioenen",t:"n"},
+    {nl:"aandeel",en:"share / stock",art:"het",pl:"aandelen",t:"n"},
+    {nl:"korting",en:"discount",art:"de",pl:"kortingen",t:"n"},
+  ],
+  "Technology & media": [
+    {nl:"telefoon",en:"phone",art:"de",pl:"telefoons",t:"n"},
+    {nl:"computer",en:"computer",art:"de",pl:"computers",t:"n"},
+    {nl:"internet",en:"internet",art:"het",pl:"—",t:"n"},
+    {nl:"website",en:"website",art:"de",pl:"websites",t:"n"},
+    {nl:"app",en:"app",art:"de",pl:"apps",t:"n"},
+    {nl:"scherm",en:"screen",art:"het",pl:"schermen",t:"n"},
+    {nl:"toetsenbord",en:"keyboard",art:"het",pl:"toetsenborden",t:"n"},
+    {nl:"muis",en:"mouse (computer)",art:"de",pl:"muizen",t:"n"},
+    {nl:"printer",en:"printer",art:"de",pl:"printers",t:"n"},
+    {nl:"camera",en:"camera",art:"de",pl:"camera's",t:"n"},
+    {nl:"televisie",en:"television",art:"de",pl:"televisies",t:"n"},
+    {nl:"radio",en:"radio",art:"de",pl:"radio's",t:"n"},
+    {nl:"krant",en:"newspaper",art:"de",pl:"kranten",t:"n"},
+    {nl:"tijdschrift",en:"magazine",art:"het",pl:"tijdschriften",t:"n"},
+    {nl:"boek",en:"book",art:"het",pl:"boeken",t:"n"},
+    {nl:"film",en:"film / movie",art:"de",pl:"films",t:"n"},
+    {nl:"muziek",en:"music",art:"de",pl:"—",t:"n"},
+    {nl:"lied",en:"song",art:"het",pl:"liederen",t:"n"},
+    {nl:"podcast",en:"podcast",art:"de",pl:"podcasts",t:"n"},
+    {nl:"sociale media",en:"social media",art:"de",pl:"—",t:"n"},
+    {nl:"bericht",en:"message",art:"het",pl:"berichten",t:"n"},
+    {nl:"e-mail",en:"email",art:"de",pl:"e-mails",t:"n"},
+    {nl:"wachtwoord",en:"password",art:"het",pl:"wachtwoorden",t:"n"},
+    {nl:"bestand",en:"file",art:"het",pl:"bestanden",t:"n"},
+    {nl:"netwerk",en:"network",art:"het",pl:"netwerken",t:"n"},
+    {nl:"software",en:"software",art:"de",pl:"—",t:"n"},
+    {nl:"update",en:"update",art:"de",pl:"updates",t:"n"},
+    {nl:"batterij",en:"battery",art:"de",pl:"batterijen",t:"n"},
+    {nl:"oplader",en:"charger",art:"de",pl:"opladers",t:"n"},
+  ],
+  "Politics & society": [
+    {nl:"overheid",en:"government",art:"de",pl:"overheden",t:"n"},
+    {nl:"regering",en:"cabinet / government",art:"de",pl:"regeringen",t:"n"},
+    {nl:"minister",en:"minister",art:"de",pl:"ministers",t:"n"},
+    {nl:"parlement",en:"parliament",art:"het",pl:"parlementen",t:"n"},
+    {nl:"wet",en:"law",art:"de",pl:"wetten",t:"n"},
+    {nl:"recht",en:"right / law",art:"het",pl:"rechten",t:"n"},
+    {nl:"regel",en:"rule",art:"de",pl:"regels",t:"n"},
+    {nl:"politiek",en:"politics",art:"de",pl:"—",t:"n"},
+    {nl:"partij",en:"party (political)",art:"de",pl:"partijen",t:"n"},
+    {nl:"verkiezing",en:"election",art:"de",pl:"verkiezingen",t:"n"},
+    {nl:"stem",en:"vote / voice",art:"de",pl:"stemmen",t:"n"},
+    {nl:"democratie",en:"democracy",art:"de",pl:"democratieën",t:"n"},
+    {nl:"grondwet",en:"constitution",art:"de",pl:"grondwetten",t:"n"},
+    {nl:"burger",en:"citizen",art:"de",pl:"burgers",t:"n"},
+    {nl:"gemeenschap",en:"community",art:"de",pl:"gemeenschappen",t:"n"},
+    {nl:"maatschappij",en:"society",art:"de",pl:"maatschappijen",t:"n"},
+    {nl:"cultuur",en:"culture",art:"de",pl:"culturen",t:"n"},
+    {nl:"religie",en:"religion",art:"de",pl:"religies",t:"n"},
+    {nl:"kerk",en:"church",art:"de",pl:"kerken",t:"n"},
+    {nl:"rechtbank",en:"court",art:"de",pl:"rechtbanken",t:"n"},
+    {nl:"gevangenis",en:"prison",art:"de",pl:"gevangenissen",t:"n"},
+    {nl:"politie",en:"police",art:"de",pl:"—",t:"n"},
+    {nl:"leger",en:"army",art:"het",pl:"legers",t:"n"},
+    {nl:"oorlog",en:"war",art:"de",pl:"oorlogen",t:"n"},
+    {nl:"vrede",en:"peace",art:"de",pl:"—",t:"n"},
+    {nl:"vluchtelingen",en:"refugees",art:"de",pl:"vluchtelingen",t:"n"},
+    {nl:"immigratie",en:"immigration",art:"de",pl:"—",t:"n"},
+    {nl:"nationaliteit",en:"nationality",art:"de",pl:"nationaliteiten",t:"n"},
+    {nl:"grens",en:"border",art:"de",pl:"grenzen",t:"n"},
+    {nl:"subsidie",en:"subsidy / grant",art:"de",pl:"subsidies",t:"n"},
+  ],
+  "Sports & hobbies": [
+    {nl:"sport",en:"sport",art:"de",pl:"sporten",t:"n"},
+    {nl:"voetbal",en:"football / soccer",art:"het",pl:"—",t:"n"},
+    {nl:"basketbal",en:"basketball",art:"het",pl:"—",t:"n"},
+    {nl:"tennis",en:"tennis",art:"het",pl:"—",t:"n"},
+    {nl:"zwemmen",en:"swimming",art:"het",pl:"—",t:"n"},
+    {nl:"fietsen",en:"cycling",art:"het",pl:"—",t:"n"},
+    {nl:"hardlopen",en:"running",art:"het",pl:"—",t:"n"},
+    {nl:"gym",en:"gym",art:"de",pl:"gyms",t:"n"},
+    {nl:"training",en:"training / workout",art:"de",pl:"trainingen",t:"n"},
+    {nl:"wedstrijd",en:"match / competition",art:"de",pl:"wedstrijden",t:"n"},
+    {nl:"team",en:"team",art:"het",pl:"teams",t:"n"},
+    {nl:"speler",en:"player",art:"de",pl:"spelers",t:"n"},
+    {nl:"coach",en:"coach",art:"de",pl:"coaches",t:"n"},
+    {nl:"kampioen",en:"champion",art:"de",pl:"kampioenen",t:"n"},
+    {nl:"hobby",en:"hobby",art:"de",pl:"hobby's",t:"n"},
+    {nl:"muziek",en:"music",art:"de",pl:"—",t:"n"},
+    {nl:"schilderen",en:"painting",art:"het",pl:"—",t:"n"},
+    {nl:"tekenen",en:"drawing",art:"het",pl:"—",t:"n"},
+    {nl:"lezen",en:"reading",art:"het",pl:"—",t:"n"},
+    {nl:"koken",en:"cooking",art:"het",pl:"—",t:"n"},
+    {nl:"tuinieren",en:"gardening",art:"het",pl:"—",t:"n"},
+    {nl:"reizen",en:"travelling",art:"het",pl:"—",t:"n"},
+    {nl:"fotografie",en:"photography",art:"de",pl:"—",t:"n"},
+    {nl:"dans",en:"dance",art:"de",pl:"dansen",t:"n"},
+    {nl:"theater",en:"theatre",art:"het",pl:"theaters",t:"n"},
+    {nl:"concert",en:"concert",art:"het",pl:"concerten",t:"n"},
+    {nl:"tentoonstelling",en:"exhibition",art:"de",pl:"tentoonstellingen",t:"n"},
+    {nl:"spel",en:"game",art:"het",pl:"spellen",t:"n"},
+  ],
+  "Abstract & everyday": [
+    {nl:"probleem",en:"problem",art:"het",pl:"problemen",t:"n"},
+    {nl:"oplossing",en:"solution",art:"de",pl:"oplossingen",t:"n"},
+    {nl:"vraag",en:"question",art:"de",pl:"vragen",t:"n"},
+    {nl:"antwoord",en:"answer",art:"het",pl:"antwoorden",t:"n"},
+    {nl:"reden",en:"reason",art:"de",pl:"redenen",t:"n"},
+    {nl:"doel",en:"goal / aim",art:"het",pl:"doelen",t:"n"},
+    {nl:"plan",en:"plan",art:"het",pl:"plannen",t:"n"},
+    {nl:"keuze",en:"choice",art:"de",pl:"keuzes",t:"n"},
+    {nl:"beslissing",en:"decision",art:"de",pl:"beslissingen",t:"n"},
+    {nl:"resultaat",en:"result",art:"het",pl:"resultaten",t:"n"},
+    {nl:"effect",en:"effect",art:"het",pl:"effecten",t:"n"},
+    {nl:"situatie",en:"situation",art:"de",pl:"situaties",t:"n"},
+    {nl:"mogelijkheid",en:"possibility / opportunity",art:"de",pl:"mogelijkheden",t:"n"},
+    {nl:"kans",en:"chance / opportunity",art:"de",pl:"kansen",t:"n"},
+    {nl:"risico",en:"risk",art:"het",pl:"risico's",t:"n"},
+    {nl:"gevaar",en:"danger",art:"het",pl:"gevaren",t:"n"},
+    {nl:"veiligheid",en:"safety / security",art:"de",pl:"—",t:"n"},
+    {nl:"recht",en:"right",art:"het",pl:"rechten",t:"n"},
+    {nl:"plicht",en:"duty / obligation",art:"de",pl:"plichten",t:"n"},
+    {nl:"verantwoordelijkheid",en:"responsibility",art:"de",pl:"verantwoordelijkheden",t:"n"},
+    {nl:"verschil",en:"difference",art:"het",pl:"verschillen",t:"n"},
+    {nl:"overeenkomst",en:"agreement / similarity",art:"de",pl:"overeenkomsten",t:"n"},
+    {nl:"verband",en:"connection / bandage",art:"het",pl:"verbanden",t:"n"},
+    {nl:"invloed",en:"influence",art:"de",pl:"invloeden",t:"n"},
+    {nl:"gevolg",en:"consequence",art:"het",pl:"gevolgen",t:"n"},
+    {nl:"oorzaak",en:"cause",art:"de",pl:"oorzaken",t:"n"},
+    {nl:"informatie",en:"information",art:"de",pl:"—",t:"n"},
+    {nl:"kennis",en:"knowledge",art:"de",pl:"—",t:"n"},
+    {nl:"ervaring",en:"experience",art:"de",pl:"ervaringen",t:"n"},
+    {nl:"mening",en:"opinion",art:"de",pl:"meningen",t:"n"},
+    {nl:"nieuws",en:"news",art:"het",pl:"—",t:"n"},
+    {nl:"bericht",en:"message / report",art:"het",pl:"berichten",t:"n"},
+    {nl:"verhaal",en:"story",art:"het",pl:"verhalen",t:"n"},
+    {nl:"taal",en:"language",art:"de",pl:"talen",t:"n"},
+    {nl:"woord",en:"word",art:"het",pl:"woorden",t:"n"},
+    {nl:"zin",en:"sentence / meaning / desire",art:"de",pl:"zinnen",t:"n"},
+    {nl:"tekst",en:"text",art:"de",pl:"teksten",t:"n"},
+    {nl:"gesprek",en:"conversation",art:"het",pl:"gesprekken",t:"n"},
+    {nl:"afspraak",en:"appointment / agreement",art:"de",pl:"afspraken",t:"n"},
+  ],
+  "Adjectives": [
+    {nl:"groot",en:"big / large / tall",t:"adj"},
+    {nl:"klein",en:"small / little",t:"adj"},
+    {nl:"lang",en:"long / tall",t:"adj"},
+    {nl:"kort",en:"short / brief",t:"adj"},
+    {nl:"breed",en:"wide / broad",t:"adj"},
+    {nl:"smal",en:"narrow",t:"adj"},
+    {nl:"dik",en:"thick / fat",t:"adj"},
+    {nl:"dun",en:"thin / slim",t:"adj"},
+    {nl:"hoog",en:"high / tall",t:"adj"},
+    {nl:"laag",en:"low",t:"adj"},
+    {nl:"zwaar",en:"heavy / difficult",t:"adj"},
+    {nl:"licht",en:"light (weight/colour)",t:"adj"},
+    {nl:"snel",en:"fast / quick",t:"adj"},
+    {nl:"langzaam",en:"slow",t:"adj"},
+    {nl:"oud",en:"old",t:"adj"},
+    {nl:"nieuw",en:"new",t:"adj"},
+    {nl:"jong",en:"young",t:"adj"},
+    {nl:"goed",en:"good",t:"adj"},
+    {nl:"slecht",en:"bad",t:"adj"},
+    {nl:"mooi",en:"beautiful / nice",t:"adj"},
+    {nl:"lelijk",en:"ugly",t:"adj"},
+    {nl:"schoon",en:"clean",t:"adj"},
+    {nl:"vies",en:"dirty",t:"adj"},
+    {nl:"warm",en:"warm / hot",t:"adj"},
+    {nl:"koud",en:"cold",t:"adj"},
+    {nl:"droog",en:"dry",t:"adj"},
+    {nl:"nat",en:"wet",t:"adj"},
+    {nl:"hard",en:"hard / loud",t:"adj"},
+    {nl:"zacht",en:"soft / quiet",t:"adj"},
+    {nl:"sterk",en:"strong",t:"adj"},
+    {nl:"zwak",en:"weak",t:"adj"},
+    {nl:"rijk",en:"rich",t:"adj"},
+    {nl:"arm",en:"poor",t:"adj"},
+    {nl:"blij",en:"happy / glad",t:"adj"},
+    {nl:"verdrietig",en:"sad",t:"adj"},
+    {nl:"boos",en:"angry",t:"adj"},
+    {nl:"bang",en:"scared / afraid",t:"adj"},
+    {nl:"moe",en:"tired",t:"adj"},
+    {nl:"ziek",en:"ill / sick",t:"adj"},
+    {nl:"gezond",en:"healthy",t:"adj"},
+    {nl:"lekker",en:"tasty / pleasant / nice",t:"adj"},
+    {nl:"vreemd",en:"strange / foreign",t:"adj"},
+    {nl:"interessant",en:"interesting",t:"adj"},
+    {nl:"saai",en:"boring",t:"adj"},
+    {nl:"druk",en:"busy",t:"adj"},
+    {nl:"rustig",en:"calm / quiet",t:"adj"},
+    {nl:"gevaarlijk",en:"dangerous",t:"adj"},
+    {nl:"veilig",en:"safe",t:"adj"},
+    {nl:"goedkoop",en:"cheap",t:"adj"},
+    {nl:"duur",en:"expensive",t:"adj"},
+    {nl:"gemakkelijk",en:"easy",t:"adj"},
+    {nl:"moeilijk",en:"difficult / hard",t:"adj"},
+    {nl:"belangrijk",en:"important",t:"adj"},
+    {nl:"nodig",en:"necessary",t:"adj"},
+    {nl:"mogelijk",en:"possible",t:"adj"},
+    {nl:"onmogelijk",en:"impossible",t:"adj"},
+    {nl:"zeker",en:"certain / sure",t:"adj"},
+    {nl:"anders",en:"different / otherwise",t:"adj"},
+    {nl:"zelfde",en:"same",t:"adj"},
+    {nl:"vrij",en:"free / fairly",t:"adj"},
+    {nl:"open",en:"open",t:"adj"},
+    {nl:"gesloten",en:"closed",t:"adj"},
+    {nl:"leeg",en:"empty",t:"adj"},
+    {nl:"vol",en:"full",t:"adj"},
+    {nl:"waar",en:"true",t:"adj"},
+    {nl:"vals",en:"false / fake",t:"adj"},
+    {nl:"eigen",en:"own",t:"adj"},
+    {nl:"gelukkig",en:"happy / fortunately",t:"adj"},
+    {nl:"helaas",en:"unfortunately",t:"adj"},
+    {nl:"dankbaar",en:"grateful",t:"adj"},
+    {nl:"trots",en:"proud",t:"adj"},
+    {nl:"nieuwsgierig",en:"curious",t:"adj"},
+    {nl:"verlegen",en:"shy",t:"adj"},
+    {nl:"eerlijk",en:"honest / fair",t:"adj"},
+    {nl:"vriendelijk",en:"friendly / kind",t:"adj"},
+    {nl:"grappig",en:"funny",t:"adj"},
+    {nl:"slim",en:"clever / smart",t:"adj"},
+    {nl:"dom",en:"stupid / dumb",t:"adj"},
+    {nl:"lief",en:"sweet / kind",t:"adj"},
+    {nl:"stoer",en:"tough / cool",t:"adj"},
+    {nl:"gezellig",en:"cosy / sociable",t:"adj"},
+  ],
+  "Adverbs & connectors": [
+    {nl:"heel",en:"very",t:"adv"},
+    {nl:"erg",en:"very / bad",t:"adv"},
+    {nl:"echt",en:"really / truly",t:"adv"},
+    {nl:"wel",en:"well / indeed",t:"adv"},
+    {nl:"ook",en:"also / too",t:"adv"},
+    {nl:"nog",en:"still / yet / another",t:"adv"},
+    {nl:"al",en:"already",t:"adv"},
+    {nl:"al",en:"already",t:"adv"},
+    {nl:"misschien",en:"maybe / perhaps",t:"adv"},
+    {nl:"waarschijnlijk",en:"probably",t:"adv"},
+    {nl:"zeker",en:"certainly / surely",t:"adv"},
+    {nl:"nooit",en:"never",t:"adv"},
+    {nl:"altijd",en:"always",t:"adv"},
+    {nl:"soms",en:"sometimes",t:"adv"},
+    {nl:"vaak",en:"often",t:"adv"},
+    {nl:"zelden",en:"rarely / seldom",t:"adv"},
+    {nl:"nu",en:"now",t:"adv"},
+    {nl:"dan",en:"then",t:"adv"},
+    {nl:"daarna",en:"afterwards / then",t:"adv"},
+    {nl:"eerst",en:"first / firstly",t:"adv"},
+    {nl:"later",en:"later",t:"adv"},
+    {nl:"meteen",en:"immediately",t:"adv"},
+    {nl:"binnenkort",en:"soon",t:"adv"},
+    {nl:"hier",en:"here",t:"adv"},
+    {nl:"daar",en:"there",t:"adv"},
+    {nl:"ergens",en:"somewhere",t:"adv"},
+    {nl:"nergens",en:"nowhere",t:"adv"},
+    {nl:"overal",en:"everywhere",t:"adv"},
+    {nl:"thuis",en:"at home",t:"adv"},
+    {nl:"buiten",en:"outside",t:"adv"},
+    {nl:"binnen",en:"inside",t:"adv"},
+    {nl:"omhoog",en:"upwards",t:"adv"},
+    {nl:"omlaag",en:"downwards",t:"adv"},
+    {nl:"links",en:"left",t:"adv"},
+    {nl:"rechts",en:"right",t:"adv"},
+    {nl:"samen",en:"together",t:"adv"},
+    {nl:"alleen",en:"alone / only",t:"adv"},
+    {nl:"eigenlijk",en:"actually",t:"adv"},
+    {nl:"gewoon",en:"just / simply / ordinary",t:"adv"},
+    {nl:"toch",en:"still / yet / after all",t:"adv"},
+    {nl:"dus",en:"so / therefore",t:"adv"},
+    {nl:"maar",en:"but / only / just",t:"adv"},
+    {nl:"want",en:"because / for",t:"adv"},
+    {nl:"omdat",en:"because",t:"adv"},
+    {nl:"hoewel",en:"although / even though",t:"adv"},
+    {nl:"als",en:"if / when / as",t:"adv"},
+    {nl:"terwijl",en:"while / whereas",t:"adv"},
+    {nl:"tenzij",en:"unless",t:"adv"},
+    {nl:"doordat",en:"because of",t:"adv"},
+    {nl:"zodat",en:"so that",t:"adv"},
+    {nl:"ongeveer",en:"approximately / about",t:"adv"},
+    {nl:"bijna",en:"almost / nearly",t:"adv"},
+    {nl:"helemaal",en:"completely / at all",t:"adv"},
+    {nl:"nauwelijks",en:"barely / hardly",t:"adv"},
+    {nl:"genoeg",en:"enough",t:"adv"},
+    {nl:"te",en:"too (excessively)",t:"adv"},
+  ]
+};
+
+const CATS = Object.keys(WORDS);
+let mode='meaning', activeCat=null, deck=[], idx=0, score={correct:0,wrong:0};
+
+function buildCatGrid(){
+  const g=document.getElementById('catGrid');
+  CATS.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='cat-btn';
+    const count=WORDS[c].length;
+    b.textContent=c+' ('+count+')';
+    b.onclick=()=>{
+      document.querySelectorAll('.cat-btn').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      activeCat=c;
+      startDeck();
+    };
+    g.appendChild(b);
+  });
+}
+
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('.mode-tab').forEach(t=>t.classList.toggle('active',t.textContent.includes(m==='meaning'?'meaning':'full')));
+  if(activeCat) startDeck();
+}
+
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+function startDeck(){
+  deck=shuffle(WORDS[activeCat]);
+  idx=0;score={correct:0,wrong:0};
+  renderCard();updateProgress();
+}
+
+function updateProgress(){
+  const total=deck.length,done=score.correct+score.wrong;
+  document.getElementById('progressFill').style.width=(total?done/total*100:0)+'%';
+  document.getElementById('progressText').textContent=total?`${done} / ${total} done`:'—';
+  const sa=document.getElementById('statsArea');
+  sa.style.display=total?'flex':'none';
+  sa.innerHTML=`<div class="stat correct"><div class="n">${score.correct}</div><div class="l">correct</div></div><div class="stat wrong"><div class="n">${score.wrong}</div><div class="l">to review</div></div><div class="stat"><div class="n">${total-done}</div><div class="l">remaining</div></div>`;
+}
+
+function typeLabel(w){
+  if(w.t==='n') return 'noun';
+  if(w.t==='adj') return 'adjective';
+  return 'adverb / connector';
+}
+
+function renderCard(){
+  const area=document.getElementById('cardArea');
+  const acts=document.getElementById('actions');
+  if(idx>=deck.length){
+    area.innerHTML=`<div class="card" style="cursor:default"><div class="card-hint">session complete</div><div class="card-main">${score.correct}/${deck.length} correct</div></div>`;
+    acts.style.display='flex';
+    acts.innerHTML=`<button class="btn primary" onclick="startDeck()">Shuffle & restart</button>`;
+    return;
+  }
+  const w=deck[idx];
+  if(mode==='meaning') renderMeaning(w,area,acts);
+  else renderFull(w,area,acts);
+}
+
+function renderMeaning(w,area,acts){
+  area.innerHTML=`<div class="card" id="mainCard" onclick="revealMeaning()">
+    <div class="card-hint">what does this mean?</div>
+    <div class="card-main">${w.nl}</div>
+    <div class="card-type">${typeLabel(w)}</div>
+    <div class="answer-block" id="answerBlock">
+      <div class="answer-grid">
+        <div class="answer-cell full"><div class="alabel">English</div><div class="avalue">${w.en}</div></div>
+        ${w.t==='n'?`<div class="answer-cell"><div class="alabel">article</div><div class="avalue">${w.art}</div></div><div class="answer-cell"><div class="alabel">plural</div><div class="avalue">${w.pl}</div></div>`:''}
+      </div>
+    </div>
+    <div class="card-tap" id="tapHint">tap to reveal</div>
+  </div>`;
+  acts.style.display='none';
+}
+
+function revealMeaning(){
+  const ab=document.getElementById('answerBlock');
+  if(!ab||ab.classList.contains('show')) return;
+  ab.classList.add('show');
+  document.getElementById('tapHint').style.display='none';
+  const acts=document.getElementById('actions');
+  acts.style.display='flex';
+  acts.innerHTML=`<button class="btn success" onclick="markM(true)">I knew it</button><button class="btn danger" onclick="markM(false)">Still learning</button>`;
+}
+
+function markM(ok){
+  if(ok) score.correct++; else score.wrong++;
+  idx++;updateProgress();renderCard();
+}
+
+function renderFull(w,area,acts){
+  const isNoun=w.t==='n';
+  let fields=`<div class="fill-row"><label>English meaning</label><input class="fill-input" id="f_en" type="text" placeholder="translation" autocomplete="off" autocorrect="off" spellcheck="false"></div>`;
+  if(isNoun){
+    fields+=`<div class="fill-row"><label>article (de / het)</label><input class="fill-input" id="f_art" type="text" placeholder="de or het" autocomplete="off" autocorrect="off" spellcheck="false"></div>`;
+    fields+=`<div class="fill-row"><label>plural</label><input class="fill-input" id="f_pl" type="text" placeholder="plural form" autocomplete="off" autocorrect="off" spellcheck="false"></div>`;
+  }
+  area.innerHTML=`<div class="card no-hover">
+    <div class="card-hint">fill in the details</div>
+    <div class="card-header">
+      <div class="card-word">${w.nl} <span class="badge badge-${w.t==='n'?'noun':w.t==='adj'?'adj':'adv'}">${typeLabel(w)}</span></div>
+    </div>
+    <div class="fill-form">${fields}</div>
+  </div>`;
+  acts.style.display='flex';
+  acts.innerHTML=`<button class="btn primary" onclick="checkFull()">Check answers</button>`;
+  setTimeout(()=>{const e=document.getElementById('f_en');if(e)e.focus();},50);
+}
+
+function norm(s){return s.trim().toLowerCase()}
+
+function checkFull(){
+  const w=deck[idx];
+  const isNoun=w.t==='n';
+  let allRight=true;
+
+  const en=document.getElementById('f_en');
+  // flexible meaning check: any word from the answer appearing in user input
+  const enWords=w.en.toLowerCase().split(/[\s/,]+/).filter(x=>x.length>2);
+  const enOk=enWords.some(ww=>norm(en.value).includes(ww))||norm(en.value)===norm(w.en);
+  en.className='fill-input '+(enOk?'correct':'wrong');
+  if(!enOk){allRight=false;en.value=en.value+' → '+w.en;}
+
+  if(isNoun){
+    const art=document.getElementById('f_art');
+    const artOk=norm(art.value)===norm(w.art);
+    art.className='fill-input '+(artOk?'correct':'wrong');
+    if(!artOk){allRight=false;art.value=art.value+' → '+w.art;}
+
+    const pl=document.getElementById('f_pl');
+    const plOk=norm(pl.value)===norm(w.pl)||w.pl==='—';
+    pl.className='fill-input '+(plOk?'correct':'wrong');
+    if(!plOk){allRight=false;pl.value=pl.value+' → '+w.pl;}
+  }
+
+  if(allRight) score.correct++; else score.wrong++;
+  idx++;updateProgress();
+  document.getElementById('actions').innerHTML=`<button class="btn primary" onclick="renderCard()">Next →</button>`;
+}
+
+buildCatGrid();
+</script>
+</body>
+</html>
