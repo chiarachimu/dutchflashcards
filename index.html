@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Dutch Irregular Verbs — Flashcards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --bg2: #f5f4f0;
+    --bg3: #eeecea;
+    --text: #1a1a18;
+    --text2: #6b6a65;
+    --text3: #9e9d97;
+    --border: rgba(0,0,0,0.12);
+    --border2: rgba(0,0,0,0.22);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --purple-light: #EEEDFE;
+    --purple-mid: #7F77DD;
+    --purple-dark: #3C3489;
+    --purple-border: #AFA9EC;
+    --teal-light: #E1F5EE;
+    --teal-dark: #085041;
+    --teal-border: #5DCAA5;
+    --red-light: #FCEBEB;
+    --red-dark: #501313;
+    --red-border: #F09595;
+    --info-light: #E6F1FB;
+    --info-dark: #0C447C;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a;
+      --bg2: #252523;
+      --bg3: #2e2e2b;
+      --text: #f0ede8;
+      --text2: #a09e97;
+      --text3: #6b6a63;
+      --border: rgba(255,255,255,0.1);
+      --border2: rgba(255,255,255,0.2);
+      --purple-light: #26215C;
+      --purple-mid: #7F77DD;
+      --purple-dark: #CECBF6;
+      --purple-border: #534AB7;
+      --teal-light: #04342C;
+      --teal-dark: #9FE1CB;
+      --teal-border: #0F6E56;
+      --red-light: #501313;
+      --red-dark: #F7C1C1;
+      --red-border: #A32D2D;
+      --info-light: #042C53;
+      --info-dark: #B5D4F4;
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg3);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .app {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    color: var(--text2);
+    margin-bottom: 1.5rem;
+  }
+
+  .mode-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .mode-tab {
+    flex: 1;
+    padding: 9px 12px;
+    border: 0.5px solid var(--border2);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    transition: all 0.15s;
+  }
+
+  .mode-tab.active {
+    background: var(--info-light);
+    color: var(--info-dark);
+    border-color: transparent;
+  }
+
+  .category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .cat-btn {
+    padding: 6px 12px;
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg2);
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text2);
+    transition: all 0.15s;
+  }
+
+  .cat-btn.active {
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    border-color: var(--purple-border);
+  }
+
+  .cat-btn:hover:not(.active) {
+    border-color: var(--border2);
+    color: var(--text);
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: var(--bg2);
+    border-radius: 2px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--purple-mid);
+    border-radius: 2px;
+    transition: width 0.3s;
+  }
+
+  .progress-text {
+    font-size: 12px;
+    color: var(--text3);
+    text-align: right;
+    margin-bottom: 1.5rem;
+  }
+
+  .card {
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+
+  .card:hover { transform: scale(1.003); }
+  .card.no-hover { cursor: default; transform: none !important; align-items: flex-start; }
+
+  .card-hint {
+    font-size: 11px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .card-main {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-cat {
+    font-size: 11px;
+    color: var(--text3);
+    margin-bottom: 1rem;
+  }
+
+  .card-tap {
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 1.5rem;
+  }
+
+  .answer-block { display: none; width: 100%; margin-top: 1rem; }
+  .answer-block.show { display: block; }
+
+  .answer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .answer-cell {
+    background: var(--bg2);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+  }
+
+  .answer-cell.full { grid-column: 1 / -1; }
+
+  .answer-cell .alabel {
+    font-size: 10px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 4px;
+  }
+
+  .answer-cell .avalue {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .fill-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .fill-row { display: flex; flex-direction: column; gap: 4px; }
+  .fill-row label { font-size: 12px; color: var(--text2); }
+
+  .fill-input {
+    width: 100%;
+    padding: 9px 12px;
+    border: 0.5px solid var(--border2);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .fill-input:focus { border-color: var(--purple-mid); }
+  .fill-input.correct { border-color: var(--teal-border); background: var(--teal-light); color: var(--teal-dark); }
+  .fill-input.wrong { border-color: var(--red-border); background: var(--red-light); color: var(--red-dark); }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    padding: 9px 18px;
+    border: 0.5px solid var(--border2);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+
+  .btn:hover { background: var(--bg2); }
+  .btn.primary { background: var(--purple-light); color: var(--purple-dark); border-color: var(--purple-border); }
+  .btn.primary:hover { background: var(--purple-border); }
+  .btn.success { background: var(--teal-light); color: var(--teal-dark); border-color: var(--teal-border); }
+  .btn.danger { background: var(--red-light); color: var(--red-dark); border-color: var(--red-border); }
+
+  .stats {
+    display: flex;
+    gap: 10px;
+    margin-top: 0.5rem;
+  }
+
+  .stat {
+    flex: 1;
+    background: var(--bg2);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .stat .n { font-size: 20px; font-weight: 500; }
+  .stat .l { font-size: 11px; color: var(--text2); }
+  .stat.correct .n { color: #1D9E75; }
+  .stat.wrong .n { color: #E24B4A; }
+
+  .empty {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text2);
+    font-size: 14px;
+  }
+
+  .conj-header {
+    margin-bottom: 1rem;
+  }
+
+  .conj-inf {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .conj-en {
+    font-size: 14px;
+    color: var(--text2);
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <h1>Dutch irregular verbs</h1>
+  <p class="subtitle">Select a category and a study mode to begin</p>
+
+  <div class="mode-tabs">
+    <button class="mode-tab active" onclick="setMode('meaning')">Mode 1 — meaning</button>
+    <button class="mode-tab" onclick="setMode('conjugation')">Mode 2 — conjugation</button>
+  </div>
+
+  <div class="category-grid" id="catGrid"></div>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="progress-text" id="progressText">—</div>
+
+  <div id="cardArea"><div class="empty">Select a category above to begin</div></div>
+  <div class="actions" id="actions" style="display:none"></div>
+  <div class="stats" id="statsArea" style="display:none"></div>
+</div>
+
+<script>
+const VERBS = [
+  {cat:'I',inf:'bijten',ps1:'beet',psp:'beten',pp:'gebeten',en:'to bite'},
+  {cat:'I',inf:'blijken',ps1:'bleek',psp:'bleken',pp:'gebleken',en:'to appear, to be evident'},
+  {cat:'I',inf:'blijven',ps1:'bleef',psp:'bleven',pp:'gebleven',en:'to stay, to remain'},
+  {cat:'I',inf:'drijven',ps1:'dreef',psp:'dreven',pp:'gedreven',en:'to float'},
+  {cat:'I',inf:'glijden',ps1:'gleed',psp:'gleden',pp:'gegleden',en:'to glide'},
+  {cat:'I',inf:'grijpen',ps1:'greep',psp:'grepen',pp:'gegrepen',en:'to grab, to snatch'},
+  {cat:'I',inf:'kijken',ps1:'keek',psp:'keken',pp:'gekeken',en:'to look, to watch'},
+  {cat:'I',inf:'knijpen',ps1:'kneep',psp:'knepen',pp:'geknepen',en:'to pinch, to squeeze'},
+  {cat:'I',inf:'krijgen',ps1:'kreeg',psp:'kregen',pp:'gekregen',en:'to get'},
+  {cat:'I',inf:'lijden',ps1:'leed',psp:'leden',pp:'geleden',en:'to suffer'},
+  {cat:'I',inf:'lijken',ps1:'leek',psp:'leken',pp:'geleken',en:'to resemble, to seem'},
+  {cat:'I',inf:'rijden',ps1:'reed',psp:'reden',pp:'gereden',en:'to drive, to ride'},
+  {cat:'I',inf:'schrijven',ps1:'schreef',psp:'schreven',pp:'geschreven',en:'to write'},
+  {cat:'I',inf:'snijden',ps1:'sneed',psp:'sneden',pp:'gesneden',en:'to cut'},
+  {cat:'I',inf:'stijgen',ps1:'steeg',psp:'stegen',pp:'gestegen',en:'to ascend'},
+  {cat:'I',inf:'strijden',ps1:'streed',psp:'streden',pp:'gestreden',en:'to battle, to fight'},
+  {cat:'I',inf:'strijken',ps1:'streek',psp:'streken',pp:'gestreken',en:'to iron, to strike'},
+  {cat:'I',inf:'verdwijnen',ps1:'verdween',psp:'verdwenen',pp:'verdwenen',en:'to disappear'},
+  {cat:'I',inf:'vermijden',ps1:'vermeed',psp:'vermeden',pp:'vermeden',en:'to avoid'},
+  {cat:'II',inf:'bedriegen',ps1:'bedroog',psp:'bedrogen',pp:'bedrogen',en:'to deceive, to cheat'},
+  {cat:'II',inf:'genieten van',ps1:'genoot van',psp:'genoten van',pp:'genoten',en:'to enjoy'},
+  {cat:'II',inf:'gieten',ps1:'goot',psp:'goten',pp:'gegoten',en:'to pour'},
+  {cat:'II',inf:'kiezen',ps1:'koos',psp:'kozen',pp:'gekozen',en:'to choose, to elect'},
+  {cat:'II',inf:'liegen',ps1:'loog',psp:'logen',pp:'gelogen',en:'to lie (tell a lie)'},
+  {cat:'II',inf:'schieten',ps1:'schoot',psp:'schoten',pp:'geschoten',en:'to shoot'},
+  {cat:'II',inf:'verliezen',ps1:'verloor',psp:'verloren',pp:'verloren',en:'to lose'},
+  {cat:'II',inf:'vliegen',ps1:'vloog',psp:'vlogen',pp:'gevlogen',en:'to fly'},
+  {cat:'II',inf:'vriezen',ps1:'vroor',psp:'vroren',pp:'gevroren',en:'to freeze'},
+  {cat:'II',inf:'duiken',ps1:'dook',psp:'doken',pp:'gedoken',en:'to dive'},
+  {cat:'II',inf:'fluiten',ps1:'floot',psp:'floten',pp:'gefloten',en:'to whistle'},
+  {cat:'II',inf:'kruipen',ps1:'kroop',psp:'kropen',pp:'gekropen',en:'to crawl, to creep'},
+  {cat:'II',inf:'ruiken',ps1:'rook',psp:'roken',pp:'geroken',en:'to smell'},
+  {cat:'II',inf:'sluiten',ps1:'sloot',psp:'sloten',pp:'gesloten',en:'to close, to shut'},
+  {cat:'II',inf:'schuiven',ps1:'schoof',psp:'schoven',pp:'geschoven',en:'to shove'},
+  {cat:'II',inf:'sluipen',ps1:'sloop',psp:'slopen',pp:'geslopen',en:'to sneak'},
+  {cat:'III',inf:'beginnen',ps1:'begon',psp:'begonnen',pp:'begonnen',en:'to begin'},
+  {cat:'III',inf:'drinken',ps1:'dronk',psp:'dronken',pp:'gedronken',en:'to drink'},
+  {cat:'III',inf:'klimmen',ps1:'klom',psp:'klommen',pp:'geklommen',en:'to climb'},
+  {cat:'III',inf:'krimpen',ps1:'kromp',psp:'krompen',pp:'gekrompen',en:'to shrink'},
+  {cat:'III',inf:'schrikken',ps1:'schrok',psp:'schrokken',pp:'geschrokken',en:'to be startled'},
+  {cat:'III',inf:'springen',ps1:'sprong',psp:'sprongen',pp:'gesprongen',en:'to jump, to spring'},
+  {cat:'III',inf:'vinden',ps1:'vond',psp:'vonden',pp:'gevonden',en:'to find'},
+  {cat:'III',inf:'winnen',ps1:'won',psp:'wonnen',pp:'gewonnen',en:'to win'},
+  {cat:'III',inf:'zingen',ps1:'zong',psp:'zongen',pp:'gezongen',en:'to sing'},
+  {cat:'III',inf:'trekken',ps1:'trok',psp:'trokken',pp:'getrokken',en:'to pull, to draw'},
+  {cat:'III',inf:'vechten',ps1:'vocht',psp:'vochten',pp:'gevochten',en:'to fight'},
+  {cat:'III',inf:'zwemmen',ps1:'zwom',psp:'zwommen',pp:'gezwommen',en:'to swim'},
+  {cat:'III',inf:'helpen',ps1:'hielp',psp:'hielpen',pp:'geholpen',en:'to help'},
+  {cat:'III',inf:'sterven',ps1:'stierf',psp:'stierven',pp:'gestorven',en:'to die'},
+  {cat:'III',inf:'worden',ps1:'werd',psp:'werden',pp:'geworden',en:'to become'},
+  {cat:'IV',inf:'breken',ps1:'brak',psp:'braken',pp:'gebroken',en:'to break'},
+  {cat:'IV',inf:'nemen',ps1:'nam',psp:'namen',pp:'genomen',en:'to take'},
+  {cat:'IV',inf:'spreken',ps1:'sprak',psp:'spraken',pp:'gesproken',en:'to speak'},
+  {cat:'IV',inf:'steken',ps1:'stak',psp:'staken',pp:'gestoken',en:'to stab'},
+  {cat:'IV',inf:'stelen',ps1:'stal',psp:'stalen',pp:'gestolen',en:'to steal'},
+  {cat:'IV',inf:'komen',ps1:'kwam',psp:'kwamen',pp:'gekomen',en:'to come, to arrive'},
+  {cat:'V',inf:'bidden',ps1:'bad',psp:'baden',pp:'gebeden',en:'to pray'},
+  {cat:'V',inf:'eten',ps1:'at',psp:'aten',pp:'gegeten',en:'to eat'},
+  {cat:'V',inf:'geven',ps1:'gaf',psp:'gaven',pp:'gegeven',en:'to give'},
+  {cat:'V',inf:'lezen',ps1:'las',psp:'lazen',pp:'gelezen',en:'to read'},
+  {cat:'V',inf:'liggen',ps1:'lag',psp:'lagen',pp:'gelegen',en:'to lie (on a surface)'},
+  {cat:'V',inf:'meten',ps1:'mat',psp:'maten',pp:'gemeten',en:'to measure'},
+  {cat:'V',inf:'vergeten',ps1:'vergat',psp:'vergaten',pp:'vergeten',en:'to forget'},
+  {cat:'V',inf:'zitten',ps1:'zat',psp:'zaten',pp:'gezeten',en:'to sit'},
+  {cat:'V',inf:'zien',ps1:'zag',psp:'zagen',pp:'gezien',en:'to see'},
+  {cat:'VI',inf:'dragen',ps1:'droeg',psp:'droegen',pp:'gedragen',en:'to carry, to bear'},
+  {cat:'VI',inf:'graven',ps1:'groef',psp:'groeven',pp:'gegraven',en:'to dig'},
+  {cat:'VI',inf:'slaan',ps1:'sloeg',psp:'sloegen',pp:'geslagen',en:'to hit, to punch'},
+  {cat:'VI',inf:'varen',ps1:'voer',psp:'voeren',pp:'gevaren',en:'to sail'},
+  {cat:'VI',inf:'jagen',ps1:'joeg',psp:'joegen',pp:'gejaagd',en:'to hunt'},
+  {cat:'VII',inf:'blazen',ps1:'blies',psp:'bliezen',pp:'geblazen',en:'to blow'},
+  {cat:'VII',inf:'gaan',ps1:'ging',psp:'gingen',pp:'gegaan',en:'to go'},
+  {cat:'VII',inf:'houden',ps1:'hield',psp:'hielden',pp:'gehouden',en:'to keep, to hold'},
+  {cat:'VII',inf:'laten',ps1:'liet',psp:'lieten',pp:'gelaten',en:'to let'},
+  {cat:'VII',inf:'lopen',ps1:'liep',psp:'liepen',pp:'gelopen',en:'to walk'},
+  {cat:'VII',inf:'roepen',ps1:'riep',psp:'riepen',pp:'geroepen',en:'to call out'},
+  {cat:'VII',inf:'slapen',ps1:'sliep',psp:'sliepen',pp:'geslapen',en:'to sleep'},
+  {cat:'VII',inf:'vallen',ps1:'viel',psp:'vielen',pp:'gevallen',en:'to fall'},
+  {cat:'VII',inf:'vangen',ps1:'ving',psp:'vingen',pp:'gevangen',en:'to catch'},
+  {cat:'VIII',inf:'bakken',ps1:'bakte',psp:'bakten',pp:'gebakken',en:'to bake, to fry'},
+  {cat:'VIII',inf:'barsten',ps1:'barstte',psp:'barstten',pp:'gebarsten',en:'to crack, to burst'},
+  {cat:'VIII',inf:'laden',ps1:'laadde',psp:'laadden',pp:'geladen',en:'to load, to charge'},
+  {cat:'VIII',inf:'scheiden',ps1:'scheidde',psp:'scheidden',pp:'gescheiden',en:'to separate, to divorce'},
+  {cat:'VIII',inf:'wassen',ps1:'waste',psp:'wasten',pp:'gewassen',en:'to wash'},
+  {cat:'U',inf:'doen',ps1:'deed',psp:'deden',pp:'gedaan',en:'to do'},
+  {cat:'U',inf:'kopen',ps1:'kocht',psp:'kochten',pp:'gekocht',en:'to buy'},
+  {cat:'U',inf:'weten',ps1:'wist',psp:'wisten',pp:'geweten',en:'to know'},
+  {cat:'U',inf:'denken',ps1:'dacht',psp:'dachten',pp:'gedacht',en:'to think'},
+  {cat:'U',inf:'staan',ps1:'stond',psp:'stonden',pp:'gestaan',en:'to stand'},
+];
+
+const CATS = [
+  {id:'all', label:'All verbs'},
+  {id:'I', label:'Cat. I — ij→ee'},
+  {id:'II', label:'Cat. II — ie/ui→oo'},
+  {id:'III', label:'Cat. III — i/e→o'},
+  {id:'IV', label:'Cat. IV — ee→a/aa'},
+  {id:'V', label:'Cat. V — i/ee→a/aa'},
+  {id:'VI', label:'Cat. VI — aa→oe'},
+  {id:'VII', label:'Cat. VII — X→ie→X'},
+  {id:'VIII', label:'Cat. VIII — regular past'},
+  {id:'U', label:'Uncategorisable'},
+];
+
+let mode = 'meaning', activeCat = null, deck = [], idx = 0, revealed = false, score = {correct:0,wrong:0};
+
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.textContent.includes(m === 'meaning' ? 'meaning' : 'conjugation')));
+  if (activeCat) startDeck();
+}
+
+function buildCatGrid() {
+  const g = document.getElementById('catGrid');
+  CATS.forEach(c => {
+    const b = document.createElement('button');
+    b.className = 'cat-btn';
+    b.textContent = c.label;
+    b.onclick = () => { document.querySelectorAll('.cat-btn').forEach(x => x.classList.remove('active')); b.classList.add('active'); activeCat = c.id; startDeck(); };
+    g.appendChild(b);
+  });
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+function startDeck() {
+  deck = shuffle(activeCat === 'all' ? VERBS : VERBS.filter(v => v.cat === activeCat));
+  idx = 0; score = {correct:0,wrong:0}; revealed = false;
+  renderCard(); updateProgress();
+}
+
+function updateProgress() {
+  const total = deck.length, done = score.correct + score.wrong;
+  document.getElementById('progressFill').style.width = (total ? done/total*100 : 0) + '%';
+  document.getElementById('progressText').textContent = total ? `${done} / ${total} done` : '—';
+  const sa = document.getElementById('statsArea');
+  sa.style.display = total ? 'flex' : 'none';
+  sa.innerHTML = `<div class="stat correct"><div class="n">${score.correct}</div><div class="l">correct</div></div><div class="stat wrong"><div class="n">${score.wrong}</div><div class="l">to review</div></div><div class="stat"><div class="n">${total - done}</div><div class="l">remaining</div></div>`;
+}
+
+function renderCard() {
+  const area = document.getElementById('cardArea');
+  const acts = document.getElementById('actions');
+  if (idx >= deck.length) {
+    area.innerHTML = `<div class="card" style="cursor:default"><div class="card-hint">session complete</div><div class="card-main">${score.correct}/${deck.length}</div><div class="card-cat">Well done! Ready for another round?</div></div>`;
+    acts.style.display = 'flex';
+    acts.innerHTML = `<button class="btn primary" onclick="startDeck()">Shuffle & restart</button>`;
+    return;
+  }
+  const v = deck[idx];
+  revealed = false;
+  if (mode === 'meaning') {
+    area.innerHTML = `<div class="card" id="mainCard" onclick="revealMeaning()"><div class="card-hint">what does this mean?</div><div class="card-main">${v.inf}</div><div class="card-cat">Category ${v.cat}</div><div class="answer-block" id="answerBlock"><div class="answer-grid"><div class="answer-cell full"><div class="alabel">English</div><div class="avalue">${v.en}</div></div></div></div><div class="card-tap" id="tapHint">tap to reveal</div></div>`;
+    acts.style.display = 'none';
+  } else {
+    area.innerHTML = `<div class="card no-hover"><div class="card-hint">fill in all forms</div><div class="conj-header"><div class="conj-inf">${v.inf}</div><div class="conj-en">${v.en}</div></div><div class="fill-form"><div class="fill-row"><label>past simple singular</label><input class="fill-input" id="f_ps1" type="text" placeholder="e.g. ging" autocomplete="off" autocorrect="off" spellcheck="false"></div><div class="fill-row"><label>past simple plural</label><input class="fill-input" id="f_psp" type="text" placeholder="e.g. gingen" autocomplete="off" autocorrect="off" spellcheck="false"></div><div class="fill-row"><label>past participle</label><input class="fill-input" id="f_pp" type="text" placeholder="e.g. gegaan" autocomplete="off" autocorrect="off" spellcheck="false"></div></div></div>`;
+    acts.style.display = 'flex';
+    acts.innerHTML = `<button class="btn primary" onclick="checkConjugation()">Check answers</button>`;
+    setTimeout(() => { const el = document.getElementById('f_ps1'); if(el) el.focus(); }, 50);
+  }
+}
+
+function revealMeaning() {
+  if (revealed) return;
+  revealed = true;
+  document.getElementById('answerBlock').classList.add('show');
+  document.getElementById('tapHint').style.display = 'none';
+  const acts = document.getElementById('actions');
+  acts.style.display = 'flex';
+  acts.innerHTML = `<button class="btn success" onclick="markMeaning(true)">I knew it</button><button class="btn danger" onclick="markMeaning(false)">Still learning</button>`;
+}
+
+function markMeaning(correct) {
+  if (correct) score.correct++; else score.wrong++;
+  idx++; updateProgress(); renderCard();
+}
+
+function checkConjugation() {
+  const v = deck[idx];
+  const fields = [{id:'f_ps1',key:'ps1'},{id:'f_psp',key:'psp'},{id:'f_pp',key:'pp'}];
+  let allRight = true;
+  fields.forEach(f => {
+    const inp = document.getElementById(f.id);
+    const ok = inp.value.trim().toLowerCase() === v[f.key].toLowerCase();
+    inp.className = 'fill-input ' + (ok ? 'correct' : 'wrong');
+    if (!ok) { allRight = false; inp.value = inp.value + ' → ' + v[f.key]; }
+  });
+  if (allRight) score.correct++; else score.wrong++;
+  idx++; updateProgress();
+  document.getElementById('actions').innerHTML = `<button class="btn primary" onclick="renderCard()">Next verb →</button>`;
+}
+
+buildCatGrid();
+</script>
+</body>
+</html>
